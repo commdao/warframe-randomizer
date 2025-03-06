@@ -1,111 +1,202 @@
 :root {
-    --primary: #7ee2ff;
-    --secondary: #162837;
-    --background: #0a1419;
-    --text: #e1e1e1;
-    --glow: rgba(126, 226, 255, 0.5);
+  --primary: #7ee2ff;
+  --secondary: #162837;
+  --background: #0a1419;
+  --text: #e1e1e1;
+  --glow: rgba(126, 226, 255, 0.5);
+  --dropdown-bg: #0f1e27;
+  --dropdown-border: rgba(126, 226, 255, 0.3);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text);
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  background-color: var(--secondary);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 0 20px var(--glow);
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+}
+
+/* Counter sections - contain display and dropdown */
+.counter-section {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Counter displays */
+.counter-display {
+  margin: 0 0 0.5rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  border: 1px solid rgba(126, 226, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.counter-display:hover {
+  border-color: var(--primary);
+  box-shadow: 0 0 10px var(--glow);
+}
+
+.counter-label {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+#roleCounter,
+#warframeCounter,
+#tilesetCounter {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  min-height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dropdown styling */
+.dropdown-container {
+  margin: 0.5rem 0;
+}
+
+select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--dropdown-border);
+  background-color: var(--dropdown-bg);
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+  appearance: none; /* Remove default arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237ee2ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  transition: all 0.3s ease;
+}
+
+select:hover, select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 10px var(--glow);
+  outline: none;
+}
+
+select option {
+  background-color: var(--dropdown-bg);
+  color: var(--text);
+  padding: 0.5rem;
+}
+
+/* Button styling */
+#rollButton {
+  background-color: var(--primary);
+  color: var(--background);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+#rollButton:hover {
+  background-color: #9ee8ff;
+  box-shadow: 0 0 15px var(--glow);
+  transform: translateY(-2px);
+}
+
+#rollButton:active {
+  transform: translateY(0);
+}
+
+#rollButton:disabled {
+  background-color: #4a5c66;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+#resetButton {
+  background-color: var(--primary, #f44336);
+  opacity: 0.3;
+  color: var(--background);
+  border: solid;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+#resetButton:hover {
+  background-color: #ff7961;
+  box-shadow: 0 0 15px rgba(244, 67, 54, 0.5);
+  transform: translateY(-2px);
+}
+
+#resetButton:active {
+  transform: translateY(0);
+}
+
+#resetButton:disabled {
+  background-color: #8d6e6b;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Animation for counter updates */
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px var(--glow);
   }
-  
-  body {
-    background-color: var(--background);
-    color: var(--text);
-    font-family: 'Segoe UI', 'Roboto', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-  }
-  
-  .container {
-    background-color: var(--secondary);
-    padding: 2rem;
-    border-radius: 15px;
+  to {
     box-shadow: 0 0 20px var(--glow);
-    text-align: center;
-    max-width: 500px;
-    width: 90%;
+  }
+}
+
+.updating {
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 1.5rem;
   }
   
-  /* Counter displays */
-  .counter-display {
-    margin: 1.5rem 0;
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    border: 1px solid rgba(126, 226, 255, 0.2);
-    transition: all 0.3s ease;
-  }
-  
-  .counter-display:hover {
-    border-color: var(--primary);
-    box-shadow: 0 0 10px var(--glow);
-  }
-  
-  .counter-label {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
-  }
-  
-  #roleCounter,
-  #warframeCounter,
-  #tilesetCounter {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0.5rem 0;
-    min-height: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  /* Button styling */
   #rollButton {
-    background-color: var(--primary);
-    color: var(--background);
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    font-weight: bold;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
   }
-  
-  #rollButton:hover {
-    background-color: #9ee8ff;
-    box-shadow: 0 0 15px var(--glow);
-    transform: translateY(-2px);
-  }
-  
-  #rollButton:active {
-    transform: translateY(0);
-  }
-  
-  #rollButton:disabled {
-    background-color: #4a5c66;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-  }
-  
-  /* Animation for counter updates */
-  @keyframes glow {
-    from {
-      box-shadow: 0 0 5px var(--glow);
-    }
-    to {
-      box-shadow: 0 0 20px var(--glow);
-    }
-  }
-  
-  .updating {
-    animation: glow 1s ease-in-out infinite alternate;
-  }
+}

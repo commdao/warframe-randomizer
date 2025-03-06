@@ -7,24 +7,52 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="counter-display">
-          <div class="counter-label">Role</div>
-          <div id="roleCounter">Waiting...</div>
-        </div>
-        
-        <div class="counter-display">
-          <div class="counter-label">Warframe</div>
-          <div id="warframeCounter">Waiting...</div>
-        </div>
-        
-        <div class="counter-display">
-          <div class="counter-label">Tileset</div>
-          <div id="tilesetCounter">Waiting...</div>
-        </div>
-      
-        <button id="rollButton" onclick="rollLoadout()">Roll Loadout</button>
+  <div class="container">
+    <div class="counter-section">
+      <div class="counter-display">
+        <div class="counter-label">Role</div>
+        <div id="roleCounter">Waiting...</div>
       </div>
+      
+      <div class="dropdown-container">
+        <select id="roleDropdown">
+          <option value="">Select Role</option>
+          <!-- Options will be added by JavaScript -->
+        </select>
+      </div>
+    </div>
+    
+    <div class="counter-section">
+      <div class="counter-display">
+        <div class="counter-label">Warframe</div>
+        <div id="warframeCounter">Waiting...</div>
+      </div>
+      
+      <div class="dropdown-container">
+        <select id="warframeDropdown">
+          <option value="">Select Warframe</option>
+          <!-- Options will be added by JavaScript -->
+        </select>
+      </div>
+    </div>
+    
+    <div class="counter-section">
+      <div class="counter-display">
+        <div class="counter-label">Tileset</div>
+        <div id="tilesetCounter">Waiting...</div>
+      </div>
+      
+      <div class="dropdown-container">
+        <select id="tilesetDropdown">
+          <option value="">Select Tileset</option>
+          <!-- Options will be added by JavaScript -->
+        </select>
+      </div>
+    </div>
+  
+    <button id="rollButton">Roll All</button>
+    <button id="resetButton">Reset</button>
+  </div>
     <script src="app.js"></script>
 </body>
 </html>
